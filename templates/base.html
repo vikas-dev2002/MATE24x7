@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MaTe 24X7</title>
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet"/>
+    <link href="{% static 'css/all.css'%}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.js'%}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+    <style>
+      body{
+            background: url("{% static 'images/bannerr3.jpeg'%}");background-size: cover;background-attachment: fixed;
+
+        }
+      .container-fluid{
+        background: linear-gradient(to right,rgba(0,0,0,.9),rgba(0,0,0,.3));
+      }  
+      .logo{min-height: 100px;text-align: center;line-height: 100px;font-size: 35px;font-weight: bold;color: aqua;}
+      nav{
+        transform: translateY(50%);
+      }  
+      #menu ul li a{
+        height: 40px;margin-left: 20px;font-size: 22px;line-height: 20px;border-radius: 5px;transition: all ease-in-out .5s;
+        color: white;font-weight: bold;font-family: Arial, Helvetica, sans-serif;
+      }  
+      #menu ul li a:hover{
+        background: aqua;border-radius: 5px;transition: all ease-in-out .5s;
+      }
+      .content{
+        min-height: 700px;
+        overflow: hidden;
+      }
+      .txt{
+        border:1px solid gray;
+        border-radius: 3px;
+        height: 45px;
+      }
+      .txt1
+    {
+        height:45px ;
+        width: 45px;
+        border: 1px solid gray;
+        color: white;
+        background:aqua;
+        font-size: 22px;
+    }
+    .sbtn
+    {
+        padding: 2% 10%;
+        
+        background: white;
+        border:2px solid white;
+        color:white;
+        border-radius: 3px;
+        font-size: 22px;
+        transition: all ease-in .3s;
+        background: transparent;
+    }
+    .sbtn:hover
+    {
+        background: aqua;
+        color: white;
+        transition: all ease-in .3s;
+
+    }
+    .uff{
+      text-decoration: none;color: white;
+    }
+    .uff:hover{
+      text-decoration: underline aqua;color: white;
+    }
+    .ufff{
+      text-decoration: none;color: white;
+    }
+    .ufff:hover{
+      text-decoration: underline white;color: aqua;
+    }
+    @keyframes down{
+      10%{
+        transform: translateY(-110px);
+      }
+      20%{
+        transform: translateY(-100px);
+      }
+      30%{
+        transform: translateY(-85px);
+      }
+      40%{
+        transform: translateY(-73px);
+      }
+      50%{
+        transform: translateY(-60px);
+      }
+      60%{
+        transform: translateY(-50px);
+      }
+      70%{
+        transform: translateY(-38px);
+      }
+      80%{
+        transform: translateY(-25px);
+      }
+      90%{
+        transform: translateY(-12px);
+      }
+      100%{
+        transform: translateY(0px);
+      }
+    }
+    .header{
+      background:#262626;
+      animation: down .3s linear 1;
+    }
+    .bg-bcolor{
+      background:#262626;
+    }
+    .auser{
+     position: fixed; 
+     top: 120px;
+     right: 0;
+     transform: rotate(30deg);
+     
+    }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row header sticky-top">
+    <div class="col-sm-3 logo">
+      <b style="font-size: 60px; color :white;">M</b>ATE <span style="font-size: 60px;color:white;">24x7</span><a href="/user/home/" style="color: white;"><i class="fa-solid fa-house-user float-end pt-4 mt-3"></i></a>
+    </div>
+    <div class="col-sm-9">
+      <nav class="navbar navbar-expand-lg navbar-light" id="menu">
+        <div class="container-flui">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/user/index/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/work/">Works</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/pricing/">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/team/">Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/blog/">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/contact/">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/user/signup/">Signup</a>
+              </li>
+              {% if request.session.userid %}
+              <li class="nav-item">
+                <a class="nav-link" href="/user/signout/">Signout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="/user/login/">Login</a>
+              </li>
+              {% endif %}
+              {% if request.session.auserid %}
+              <li class="nav-item">
+                <a class="nav-link" href="/user/asignout/">Signout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="/user/alogin/">Partner Login</a>
+              </li>
+              {% endif %}
+              <span class="btn ms-4" style="background: aqua;color: black;"><b><a href="/user/showauser/" style="text-decoration: none;color: white;">Cart</a></b><span class="fs-4 ms-1">{{n}}</span></span>
+            </ul>
+            {% if request.session.auserid %}
+            <span class="auser btn text-white bg-success float-end"><b>{{request.session.auserid}}</b></span>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="row content">
+    <div class="col-sm-12 p-0">
+      {% block content %}
+      
+      {% endblock %}
+    </div>
+  </div>
+  <hr style="margin: 0;color:white;">
+  <div class="row ufooter py-5 bg-bcolor">
+    <div class="col-sm-3 px-5 pt-4">
+      <h4 class="pb-2" style="color: aqua;"><b style="font-size: 40px; color :white;">M</b>ATE <span style="font-size: 40px;color:white;">24x7</span></h4>
+        <p style="line-height: 35px;color: white;">Mate24X7 is and mordern and Elegand Wordpress Themes Specialy Designed for Auto Repair, Mechanic Services and other type of handly related bussiness Mate24X7 comes with powerful Admin Panel and Lots of new and Customizable Elements</p>
+    </div>
+    <div class="col-sm-3 ps-5 pt-4 text-white">
+      <h4 class="text-white pb-2"><span style="text-decoration: underline aqua;">QUICK</span> <span style="color: aqua;">LINK</span></h4>
+        <p><a href="" class="uff">Home</a></p>
+        <p><a href="" class="uff">Why Choose Us ?</a></p>
+        <p><a href="" class="uff">Our Services</a></p>
+        <p><a href="" class="uff">Services FAQ'S</a></p>
+        <p><a href="" class="uff">Themes Elements</a></p>
+        <p><a href="" class="uff">Clients Testmonials</a></p>
+        <p><a href="" class="uff">Schedule an Appointment</a></p>
+
+    </div>
+    <div class="col-sm-3 ps-5 pt-4 text-white">
+      <h4 class="text-white pb-2"><span style="text-decoration: underline aqua;">OUR</span> <span style="color: aqua;">SERVICES</span></h4>
+      <p><a href="" class="uff">All Services</a></p>
+      <p><a href="" class="uff">Auto Maintenance</a></p>
+      <p><a href="" class="uff">Auto Repair</a></p>
+      <p><a href="" class="uff">Auto Inspection</a></p>
+      <p><a href="" class="uff">Auto Diagnostics</a></p>
+      <p><a href="" class="uff">Engine Repair</a></p>
+      <p><a href="" class="uff">Wheel Alignment</a></p>
+    </div>
+    <div class="col-sm-3 ps-5 pt-4 text-white">
+      <h4 class="text-white pb-2">OUR SERVICES</h4>
+      <p>All Services</p>
+      <p>Auto Maintenance</p>
+      <p>Auto Repair</p>
+      <p>Auto Inspection</p>
+      <p>Auto Diagnostics</p>
+      <p>Engine Repair</p>
+      <p>Wheel Alignment</p>
+  </div>
+    </div>
+    <hr style="margin: 0;color:white;"/>
+    <div class="row bfooter bg-bcolor text-center text-white">
+        <div class="col-sm-6 ">DEVELOPED BY : <a href="" class="ufff"> VIKAS CHAUDHARY</a></div>
+        <div class="col-sm-6 ">Copy Right : <a href="" class="ufff"> mate@gmail.com</a></div>
+    </div>
+      
+</div>
+</body>
+</html>

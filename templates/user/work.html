@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+{% if not request.session.auserid %}
+
+{% if request.session.userid %}
+<script>
+    alert("This is for only MATE partner !!!")
+    location.href="/user/index/"
+</script>
+{% else %}
+<script>
+    alert("You Are Login As A MATE Partner !!!!!")
+    location.href="/user/index/"
+</script>
+{% endif %}
+{% endif %}
+{% for i in udata %}
+<div class="row my-3 mx-3">
+    <div class="col-sm-12">
+        <div class="card my-3 px-2">
+            <div class="row g-0">
+              <div class="col-md-12 px-5">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-2"><a href="" style="text-decoration: none;" class="btn bg-success text-white">{{i.id}}</a><span class="float-end pt-2">{{i.name}}</span></div>
+                    <div class="col-sm-2 pt-2"><a href="tel:{{i.mobile}}" style="text-decoration: none;">{{i.mobile}}</a></div>
+                    <div class="col-sm-2 pt-2"><a href="tel:{{i.amobile}}" style="text-decoration: none;">{{i.amobile}}</a></div>
+                    <div class="col-sm-2 pt-2">{{i.city}}</div>
+                    <div class="col-sm-2 pt-2">{{i.address}}</div>
+                    <div class="col-sm-1 pt-2">{{i.job}}</div>
+                    <div class="col-sm-1"><a href="/user/cart?uid={{i.id}}">ADD</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+ </div>
+ <input type="button" value="add" onclick="demo()" id="addd">
+<script>
+let demo= () =>
+  {
+    var x=document.querySelector("input").type="text"
+    alert(x)
+    
+  }
+</script>
+{% endfor %}
+{% endblock %}

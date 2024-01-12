@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for i in cdata %}
+<div class="row my-3 mx-3">
+    <div class="col-sm-12">
+        <div class="card my-3 px-2">
+            <div class="row g-0">
+              <div class="col-md-12 px-5">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-2"><a href="" style="text-decoration: none;" class="btn bg-success text-white">{{i.0}}</a><span class="float-end pt-2">{{i.1}}</span></div>
+                    <div class="col-sm-2 pt-2"><a href="tel:{{i.mobile}}" style="text-decoration: none;">{{i.2}}</a></div>
+                    <div class="col-sm-2 pt-2"><a href="tel:{{i.amobile}}" style="text-decoration: none;">{{i.3}}</a></div>
+                    <div class="col-sm-2 pt-2">{{i.4}}</div>
+                    <div class="col-sm-2 pt-2">{{i.5}}</div>
+                    <div class="col-sm-1 pt-2">{{i.6}}</div>
+                    <div class="col-sm-1"><a href="/user/cart?uid={{i.id}}" style="text-decoration: none;" class="btn bg-success float-end text-white">ADD</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+ </div>
+{% endfor %}
+
+{% endblock%}

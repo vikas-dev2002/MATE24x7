@@ -1,0 +1,224 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% if not request.session.userid %}
+{% if not request.session.auserid %}
+<script>
+    alert("You Have Login First !!!!!!")
+    location.href="/user/login/"
+</script>
+{% endif %}
+{% endif %}
+<div class="row my-3">
+    <div class="col-sm-12 fs-1 fw-bold text-center text-white">
+        Plumber
+    </div>
+</div>
+{% for i in data %}
+<div class="row my-3 mx-3">
+<div class="col-sm-12">
+    <div class="card my-3 px-2">
+        <div class="row g-0">
+          <div class="col-md-2 py-2">
+            <img src="/{{i.pic}}" class="img-fluid rounded-start" alt="..." style="height: 200px;">
+          </div>
+          <div class="col-md-10 px-5">
+            <div class="card-body">
+              <h5>Name : {{i.name}}</h5>
+              <p>Mobile Number : <a href="tel:{{i.phone}}" style="text-decoration: none;">{{i.phone}}</a></p>
+              <p>Alternet Number : <a href="tel:{{i.aphone}}" style="text-decoration: none;">{{i.aphone}}</a><a href="mailto:{{i.email}}" style="text-decoration: none; color: white;" class="btn float-end bg-success">{{i.email}}</a></p>
+              <p>City : <a href="" class="btn bg-success text-white">{{i.city}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+{% endfor %}
+<div class="row my-3">
+    <div class="col-sm-12 fs-1 fw-bold text-center text-white">
+        Electrician
+    </div>
+</div>
+{% for i in edata %}
+<div class="row my-3 mx-3">
+<div class="col-sm-12">
+    <div class="card my-3 px-2">
+        <div class="row g-0">
+          <div class="col-md-2 py-2">
+            <img src="/{{i.pic}}" class="img-fluid rounded-start" alt="..." style="height: 200px;">
+          </div>
+          <div class="col-md-10 px-5">
+            <div class="card-body">
+              <h5>Name : {{i.name}}</h5>
+              <p>Mobile Number : <a href="tel:{{i.phone}}" style="text-decoration: none;">{{i.phone}}</a></p>
+              <p>Alternet Number : <a href="tel:{{i.aphone}}" style="text-decoration: none;">{{i.aphone}}</a><a href="mailto:{{i.email}}" style="text-decoration: none; color: white;" class="btn float-end bg-success">{{i.email}}</a></p>
+              <p>City : <a href="" class="btn bg-success text-white">{{i.city}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+{% endfor %}
+<div class="row my-3">
+    <div class="col-sm-12 fs-1 fw-bold text-center text-white">
+        Bikes
+    </div>
+</div>
+{% for i in bdata %}
+<div class="row my-3 mx-3">
+<div class="col-sm-12">
+    <div class="card my-3 px-2">
+        <div class="row g-0">
+          <div class="col-md-2 py-2">
+            <img src="/{{i.pic}}" class="img-fluid rounded-start" alt="..." style="height: 200px;">
+          </div>
+          <div class="col-md-10 px-5">
+            <div class="card-body">
+              <h5>Name : {{i.name}}</h5>
+              <p>Mobile Number : <a href="tel:{{i.phone}}" style="text-decoration: none;">{{i.phone}}</a></p>
+              <p>Alternet Number : <a href="tel:{{i.aphone}}" style="text-decoration: none;">{{i.aphone}}</a><a href="mailto:{{i.email}}" style="text-decoration: none; color: white;" class="btn float-end bg-success">{{i.email}}</a></p>
+              <p>City : <a href="" class="btn bg-success text-white">{{i.city}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+{% endfor %}
+<div class="row my-3">
+    <div class="col-sm-12 fs-1 fw-bold text-center text-white">
+        Bus and Truck
+    </div>
+</div>
+{% for i in tdata %}
+<div class="row my-3 mx-3">
+<div class="col-sm-12">
+    <div class="card my-3 px-2">
+        <div class="row g-0">
+          <div class="col-md-2 py-2">
+            <img src="/{{i.pic}}" class="img-fluid rounded-start" alt="..." style="height: 200px;">
+          </div>
+          <div class="col-md-10 px-5">
+            <div class="card-body">
+              <h5>Name : {{i.name}}</h5>
+              <p>Mobile Number : <a href="tel:{{i.phone}}" style="text-decoration: none;">{{i.phone}}</a></p>
+              <p>Alternet Number : <a href="tel:{{i.aphone}}" style="text-decoration: none;">{{i.aphone}}</a><a href="mailto:{{i.email}}" style="text-decoration: none; color: white;" class="btn float-end bg-success">{{i.email}}</a></p>
+              <p>City : <a href="" class="btn bg-success text-white">{{i.city}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+{% endfor %}
+<div class="row my-3">
+    <div class="col-sm-12 fs-1 fw-bold text-center text-white">
+        Bikes
+    </div>
+</div>
+{% for i in bdata %}
+<div class="row my-3 mx-3">
+<div class="col-sm-12">
+    <div class="card my-3 px-2">
+        <div class="row g-0">
+          <div class="col-md-2 py-2">
+            <img src="/{{i.pic}}" class="img-fluid rounded-start" alt="..." style="height: 200px;">
+          </div>
+          <div class="col-md-10 px-5">
+            <div class="card-body">
+              <h5>Name : {{i.name}}</h5>
+              <p>Mobile Number : <a href="tel:{{i.phone}}" style="text-decoration: none;">{{i.phone}}</a></p>
+              <p>Alternet Number : <a href="tel:{{i.aphone}}" style="text-decoration: none;">{{i.aphone}}</a><a href="mailto:{{i.email}}" style="text-decoration: none; color: white;" class="btn float-end bg-success">{{i.email}}</a></p>
+              <p>City : <a href="" class="btn bg-success text-white">{{i.city}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
+{% endfor %}
+<div class="row my-3">
+    <div class="col-sm-12 fs-1 fw-bold text-center text-white">
+        Auto
+    </div>
+</div>
+{% for i in adata %}
+<div class="row my-3 mx-3">
+<div class="col-sm-12">
+    <div class="card my-3 px-2">
+        <div class="row g-0">
+          <div class="col-md-2 py-2">
+            <img src="/{{i.pic}}" class="img-fluid rounded-start" alt="..." style="height: 200px;">
+          </div>
+          <div class="col-md-10 px-5">
+            <div class="card-body">
+              <h5>Name : {{i.name}}</h5>
+              <p>Mobile Number : <a href="tel:{{i.phone}}" style="text-decoration: none;">{{i.phone}}</a></p>
+              <p>Alternet Number : <a href="tel:{{i.aphone}}" style="text-decoration: none;">{{i.aphone}}</a><a href="mailto:{{i.email}}" style="text-decoration: none; color: white;" class="btn float-end bg-success">{{i.email}}</a></p>
+              <p>City : <a href="" class="btn bg-success text-white">{{i.city}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
+{% endfor %}
+<div class="row my-3">
+    <div class="col-sm-12 fs-1 fw-bold text-center text-white">
+        Tractor
+    </div>
+</div>
+{% for i in trdata %}
+<div class="row my-3 mx-3">
+<div class="col-sm-12">
+    <div class="card my-3 px-2">
+        <div class="row g-0">
+          <div class="col-md-2 py-2">
+            <img src="/{{i.pic}}" class="img-fluid rounded-start" alt="..." style="height: 200px;">
+          </div>
+          <div class="col-md-10 px-5">
+            <div class="card-body">
+              <h5>Name : {{i.name}}</h5>
+              <p>Mobile Number : <a href="tel:{{i.phone}}" style="text-decoration: none;">{{i.phone}}</a></p>
+              <p>Alternet Number : <a href="tel:{{i.aphone}}" style="text-decoration: none;">{{i.aphone}}</a><a href="mailto:{{i.email}}" style="text-decoration: none; color: white;" class="btn float-end bg-success">{{i.email}}</a></p>
+              <p>City : <a href="" class="btn bg-success text-white">{{i.city}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
+{% endfor %}
+<div class="row my-3">
+    <div class="col-sm-12 fs-1 fw-bold text-center text-white">
+        Cars
+    </div>
+</div>
+{% for i in cdata %}
+<div class="row my-3 mx-3">
+<div class="col-sm-12">
+    <div class="card my-3 px-2">
+        <div class="row g-0">
+          <div class="col-md-2 py-2">
+            <img src="/{{i.pic}}" class="img-fluid rounded-start" alt="..." style="height: 200px;">
+          </div>
+          <div class="col-md-10 px-5">
+            <div class="card-body">
+              <h5>Name : {{i.name}}</h5>
+              <p>Mobile Number : <a href="tel:{{i.phone}}" style="text-decoration: none;">{{i.phone}}</a></p>
+              <p>Alternet Number : <a href="tel:{{i.aphone}}" style="text-decoration: none;">{{i.aphone}}</a><a href="mailto:{{i.email}}" style="text-decoration: none; color: white;" class="btn float-end bg-success">{{i.email}}</a></p>
+              <p>City : <a href="" class="btn bg-success text-white">{{i.city}}</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
+{% endfor %}
+{% endblock %}

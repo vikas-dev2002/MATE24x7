@@ -1,0 +1,98 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+{% if request.session.auserid %}
+<script>
+    alert("You are Already Login As Mate Partner !!!!")
+    location.href="/user/index/"
+</script>
+{% endif %}
+<style>
+    .rimg
+    {
+        background: url("{% static 'images/bannerr5.jpeg'%}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 102px;
+    }
+    .f
+    {
+        min-height: 500px;
+        background: rgba(0,0,0,.3);
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px 2px white;
+        color:white;
+    }
+    .pt1
+    {
+        height: 50px;
+        border-radius: 25px;
+        margin-top: 20px;
+        border: none;
+        padding-left: 40px;
+        box-sizing: border-box;
+        outline:none;
+        font-size: 20px;
+    }
+    b:hover
+    {
+        color:white;
+        text-decoration: underline;
+    }
+    .btn1
+	{
+		height:52px;
+		border-bottom:10px solid white;
+		border-radius:24px;
+        box-sizing: border-box;
+	}
+    .btn1:hover
+    {
+        border-bottom:10px solid aqua;
+        transition:all ease-in .3s;
+    }
+	.btn2
+	{
+	      height:44px;
+          font-size: 20px;
+          padding-bottom: 2px;
+          color: white;
+          font-weight: bold;
+          border: 3px solid white;
+          background: white;
+          background: linear-gradient(to right,rgba(16, 13, 213, 0.7),aqua);
+	}
+	.btn2:hover
+	{
+		background:transparent;
+		color:white;
+        border: 3px solid aqua;
+		transition:all ease-in .3s;
+	}
+    
+
+</style>
+<div class="container-fluid rimg">
+<div class="row">
+    <div class="col-sm-12 fs-2 text-center pb-3 pt-2"><span style="text-decoration: underline #ff8800;">LOGIN</span> <b style="color:#ff9800">HERE <i class="fa-solid fa-user-plus"></i></b></div>
+</div>
+<div class="row p-0">
+    <div class="col-sm-5 mx-auto f py-5 px-5">
+        <div style="font-size: 30px; text-align: center;">Welcome to FavCart India
+        </div>
+        <p style="font-size: 17px;text-align: center;" class="mt-2">LogIn to your Online Training </p> 
+
+        <form method="post">
+            {% csrf_token %}
+            <input type="email" class="form-control pt1 mt-4" required name="e"/>
+            <input type="password" class="form-control pt1" required name="p"/>
+            <div class="btn1 mt-4 ">
+            <input type="submit" value="LOGIN" class="btn btn2 form-control rounded rounded-4">
+            </div><br/><br/>
+            <hr/><br/>
+            <div style="text-align: center;font-size: 18px;">Don't have an account? <a href="/user/signup/" style="text-decoration:none;color:aqua"><b>Sign Up</b></a></div>
+        </form>
+    </div>
+</div>
+</div>
+{% endblock %}

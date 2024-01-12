@@ -1,0 +1,447 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    #btn{
+        width: 220px;
+    padding: 9px 0;
+    text-align: center;
+    margin: 0 10px;
+    font-size: 13px;
+    border-radius: 25px;
+    margin-left: 39%;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(to right,rgba(16, 13, 213, 0.7),aqua);
+    border: 2px solid white;
+    transition:all ease-in-out .5s;
+    }
+    #btn:hover{
+        background: transparent;
+    }
+    .rimg
+    {
+        background: url("{% static 'images/hero-2.jpg'%}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-bottom: 30px;
+    }
+    .f
+    {
+        min-height: 500px;
+         
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px 2px white ;
+        color:white;
+    }
+    .pt1
+    {
+        height: 50px;
+        border-radius: 25px;
+        margin-top: 20px;
+        border: none;
+        padding-left: 40px;
+        box-sizing: border-box;
+        outline:none;
+        font-size: 20px;
+    }
+    .ssss:hover
+    {
+        color:white;
+        text-decoration: underline;
+    }
+    .btn1
+	{
+		height:52px;
+		border-bottom:10px solid white;
+		border-radius:24px;
+        box-sizing: border-box;
+	}
+    .btn1:hover
+    {
+        border-bottom:10px solid aqua;
+        transition:all ease-in .3s;
+    }
+	.btn2
+	{
+	      height:44px;
+          font-size: 20px;
+          padding-bottom: 2px;
+          color: white;
+          font-weight: bold;
+          border: 3px solid white;
+          background: white;
+          background: linear-gradient(to right,rgba(16, 13, 213, 0.7),aqua);
+	}
+	.btn2:hover
+	{
+		background:transparent;
+		color:white;
+		
+        border: 3px solid aqua;
+		transition:all ease-in .3s;
+	}
+    .gallery1{
+        background: #f1f6e9;
+    }
+    .gallery{
+        min-height: 400px;
+    }
+    #Imgb{
+        border-radius: 10px;border: 10px groove yellowgreen;border-bottom-left-radius: 80px;border-top-right-radius: 80px;
+    }
+    .Imgs{
+        border-bottom-left-radius: 40px;border: 10px groove yellowgreen;border-top-right-radius: 40px;
+    }
+    .map{
+        min-height: 800px;background: url("{% static 'images/bike.png'%}");background-size: cover;
+    }
+    .map2{
+        min-height: 400px;background: #ffffff;
+    }
+    .map3{
+        min-height: 400px;background: #f1f6e9;
+    }
+    .map4{
+        min-height: 400px;background: #ffffff;
+    }
+    .map5{
+        min-height: 400px;background: #f2f4f0;
+    }
+    .newblog{
+        min-height: 500px;
+        background: url("{% static 'images/bannerr1.jpeg'%}");
+        background-size: cover; 
+        font-family: sans-serif; 
+    }
+    .newblogBox{
+        background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8));
+    }
+    .box{
+        box-shadow: 0px 2px 1px 0px gray ;
+        background: white;
+        padding-top: 30px;
+        padding-left: 20px;
+    }
+    @keyframes upperr{
+        0%{
+            height: 0px;
+        }
+        10%{
+            height: 20px;
+        }
+        20%{
+            height: 40px;
+        }
+        30%{
+            height: 60px;
+        }
+        40%{
+            height: 80px;
+        }
+        50%{
+            height: 100px;
+        }
+        60%{
+            height: 120px;
+        }
+        70%{
+            height: 140px;
+        }
+        80%{
+            height: 160px;
+        }
+        90%{
+            height: 180px;
+        }
+        100%{
+            height: 200px;
+        }
+    }
+    .box:hover{
+        animation: upperr .3s linear 1;
+        background: url("{% static 'images/blog1.png'%}");
+        color: #fff;
+        background-size: cover;
+    }
+    .rd{
+        border: none;
+        background: transparent;
+    }
+</style>
+<div class="row pb-3">
+    <div class="col-sm-6">   
+        <div style="font-size: 40px; text-align: center;padding-top: 200px;box-sizing: border-box;color: white;font-weight: bold;">Mate-Free Parallax Website Template
+        </div>
+                <p style="text-align: center;color:white;font-size: 18px;">Lorem ipsum dolor sit amet, consectecure adipiscing elit.</p>
+                <div id="btn">DOWNLOAD</div>
+    </div> 
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-12 fs-2 text-center pb-3 pt-2"><span style="text-decoration: underline aqua;color:white">PARTNER</span> <b style="color:aqua">LOGIN <i class="fa-solid fa-user-plus"></i></b></div>
+        </div>
+        <div class="row p-0">
+            <div class="col-sm-10 mx-auto f py-5 px-5">
+                <div style="font-size: 30px; text-align: center;">Welcome to MaTe India
+                </div>
+                <p style="font-size: 17px;text-align: center;" class="mt-2">LogIn to your Online Training </p> 
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="email" class="form-control pt1 mt-4" required name="ee"/>
+                    <input type="password" class="form-control pt1" name="pp"/>
+                    <div class="btn1 mt-4 ">
+                    <input type="submit" value="LOGIN" class="btn btn2 form-control rounded rounded-4">
+                    </div><br/><br/>
+                    <hr/><br/>
+                    <div style="text-align: center;font-size: 18px;">Don't have an account? <a href="/user/signup/" style="text-decoration:none;color:aqua"><b class="ssss">Sign Up</b></a></div>
+                </form>
+            </div>
+        </div>
+    </div>           
+</div> 
+<div class="row map">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="fw-bold text-white mt-5 ps-4">MATE S1. Partner arive Fast </h1>
+            </div>
+        </div>
+        <div class="row text-white">
+            <div class="col-sm-4 ps-5 mt-3 fs-5 text-white">With fantastic features such as Hyper<br/> Mode and Eco Mode, get an unbelievable <br/>top speed of 116 KM/H and an unbeatable <br/>range that can reach up to 300 km.</div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-1 border border-1 fs-4 fw-bold pt-2 text-center">181 KM <p style="font-size: 15px;color: black;" class="pt-2">Range</p></div>
+            <div class="col-sm-1 border border-1 fs-5 fw-bold pt-2 text-center">116 KM/H <p style="font-size: 15px;color: black;" class="pt-2">Top Speed</p></div>
+            <div class="col-sm-1 border border-1 fs-4 fw-bold pt-2 text-center">2.9 sec <p style="font-size: 15px;color: black;" class="pt-2">0 To 40 KM/H</p></div>
+            <div class="col-sm-2"></div>
+
+        </div>
+    </div>
+</div>
+<div class="row map4 py-5">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4 pb-5">
+        <video src="{% static 'video/matev.mp4'%}" controls="controls" autoplay height="600px" width="450px"></video>
+    </div>
+    <div class="col-sm-4 pt-5 ps-5">
+        <h1 class="pt-5 fw-bold">Making innovations since 2011</h1>
+
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+<div class="row map3 py-5">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12 pt-5 ps-5"><h1 class="fw-bold">Experience the <br/>smarter way to pay
+            </h1></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4 pt-3">
+                <img src="{% static 'images/pay.png'%}" alt="" height="300px" class="img-fluid">
+            </div>
+            <div class="col-sm-4"><h1>SomeThing Write Here</h1></div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+</div>
+<div class="row map2">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12 pt-5 ps-5"><h1 class="fw-bold">Making a difference</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 ps-5"><p>Mate Foundation, the social welfare arm of Ola, is an outcome of a<br/> belief based on real interactions, research, and extensive study on <br/>the far-reaching impact of enabling and equipping people.</p></div>
+            <div class="col-sm-3 fs-5"><b>1 LAKHS+</b> <p style="font-size: 15px;">Families impacted in FY 2020-21</p></div>
+            <div class="col-sm-3 fs-5"><b>93 LAKHS+ </b><p style="font-size: 15px;">Meals enabled across India in FY 2020-21</p></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <div class="row my-2">
+                    <div class="col-sm-12"><img src="{% static 'images/womens.png'%}" alt="" class="img-fluid"></div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-12"><img src="{% static 'images/donating.png'%}" alt="" class="img-fluid"></div>
+                </div>
+            </div>
+            <div class="col-sm-4 my-2">
+                <img src="{% static 'images/mother.png'%}" alt="" class="img-fluid">
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+        
+
+    </div>
+</div>
+<div class="row map5">
+    <div class="row">
+        <div class="col-sm-12 p-5">
+            <h1 class="fw-bold">Recent from our blogs</h1>
+        </div>
+    </div>    
+<div class="row ps-5 pb-5">
+<div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'images/blog.jpeg'%}" class="card-img-top" alt="..." class="img-fluid">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+</div>
+<div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'images/blog1.png'%}" class="card-img-top" alt="..." class="img-fluid">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+</div>
+<div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'images/blog2.png'%}" class="card-img-top" alt="..." class="img-fluid">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+</div>
+<div class="col-sm-3">
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'images/blog2.png'%}" class="card-img-top" alt="..." class="img-fluid">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+</div>
+</div>
+</div>
+<div class="row p-5 gallery1">
+    <div class="col-sm-12 gallery p-5">
+        <img src="{% static 'images/gallery1.jpg'%}" height="500px" width="100%" id="Imgb"><br/><br/>    
+        <img src="{% static 'images/gallery2.jpg'%}" height="100px" width="150px" onmouseleave="demo1(this)" onmouseover="demo(this)" class="Imgs ms-2">
+        <img src="{% static 'images/gallery3.jpg'%}" height="100px" width="150px" onmouseleave="demo1(this)" onmouseover="demo(this)" class="Imgs ms-2">
+        <img src="{% static 'images/gallery4.jpg'%}" height="100px" width="150px" onmouseleave="demo1(this)" onmouseover="demo(this)" class="Imgs ms-2">
+        <img src="{% static 'images/gallery5.jpg'%}" height="100px" width="150px" onmouseleave="demo1(this)" onmouseover="demo(this)" class="Imgs ms-2">
+        <img src="{% static 'images/gallery6.jpg'%}" height="100px" width="150px" onmouseleave="demo1(this)" onmouseover="demo(this)" class="Imgs ms-2">
+        <img src="{% static 'images/gallery7.jpg'%}" height="100px" width="150px" onmouseleave="demo1(this)" onmouseover="demo(this)" class="Imgs ms-2">
+        <img src="{% static 'images/gallery8.jfif'%}" height="100px" width="150px" onmouseleave="demo1(this)" onmouseover="demo(this)" class="Imgs ms-2">
+        <img src="{% static 'images/gallery1.jpg'%}" height="100px" width="150px" onmouseleave="demo1(this)" onmouseover="demo(this)" class="Imgs ms-2">    
+        <script>
+            let demo= (x) =>
+            {
+                document.querySelector("#Imgb").src=x.src
+                x.style.border="10px groove yellow"
+                x.style.transform="scale(1.1)"
+            }
+            let demo1= (y) =>
+            {
+                document.querySelector("#Imgb").src="{% static 'images/gallery1.jpg'%}"
+                y.style.border="10px groove yellowgreen"
+                y.style.transform="scale(1)"
+            }
+        </script>
+
+    </div>
+</div>  
+<div class="row newblog">
+    <div class="col-sm-12 newblogBox pb-3">
+        <div class="row">
+            <div class="col-sm-12 p-5 text-white">
+                <h1 class="fw-bold">OUR SERVICES</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis nihil hic officiis reprehenderit quae, harum, quos omnis modi aliquam assumenda soluta corrupti et voluptatem explicabo excepturi aliquid deserunt quam! Impedit?</p>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3 box mx-auto">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>SERVICE AND REPAIR</p>
+                        <h5 class="fw-bold">Best Performances Plumber</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 p-3">
+                        <button type="button" class="float-start mt-4 rd">READ MORE+</button>
+                        <i style="font-size: 70px;color: aqua;" class=""><i class="fa-solid fa-screwdriver-wrench float-end"></i></i>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-3 box mx-auto">
+                <div class="row">
+                    <div class="col-sm-12"></div>
+                    <p>SERVICE AND REPAIR</p>
+                    <h5 class="fw-bold">Best Performances Electrician</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 p-3">
+                        <button type="button" class="float-start mt-4 rd">READ MORE+</button>
+                    <i style="font-size: 70px;color: aqua;"><i class="fa-solid fa-plug float-end"></i></i>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-3 box mx-auto">
+                <div class="row">
+                    <div class="col-sm-12"></div>
+                    <p>SERVICE AND AUTO REPAIR</p>
+                    <h5 class="fw-bold">Best Performances Auto Repair</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 p-3">
+                        <button type="button" class="float-start mt-4 rd">READ MORE+</button>
+                    <i style="font-size: 70px; color: aqua;"><i class="fa-solid fa-hammer float-end"></i></i>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <div class="row my-4">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-3 box mx-auto">
+                <div class="row">
+                    <div class="col-sm-12"></div>
+                    <p>SERVICE AND REPAIR</p>
+                    <h5 class="fw-bold">Best Performances Car Services</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 p-3">
+                        <button type="button" class="float-start mt-4 rd">READ MORE+</button>
+                    <i style="font-size: 70px; color: aqua;"><i class="fa-solid fa-car float-end"></i></i>
+                </div>
+                </div>
+            </div>
+            <div class="col-sm-3 box mx-auto">
+                <div class="row">
+                    <div class="col-sm-12"></div>
+                    <p>SERVICE AND REPAIR</p>
+                    <h5 class="fw-bold">Best Performances Bike Repair</h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 p-3">
+                        <button type="button" class="float-start mt-4 rd">READ MORE+</button>
+                        <i style="font-size: 70px;color: aqua;"><i class="fa-solid fa-bicycle float-end"></i></i>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-3 box mx-auto">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>SERVICE AND REPAIR</p>
+                    <h5 class="fw-bold">Best Performances Bus Services</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 p-3">
+                        <button type="button" class="float-start mt-4 rd">READ MORE+</button>
+                        <i style="font-size: 70px;color: aqua;"><i class="fa-solid fa-bus float-end"></i></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+</div>            
+{% endblock %}

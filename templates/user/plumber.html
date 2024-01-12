@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .outer{
+        min-height: 400px;padding:2% 12%;
+    }
+    .gb{
+        background: rgba(256, 256, 256, .5);
+    }
+    .fc{
+        font-size: 18px;color: white;
+    }
+    .cap{
+        background: url("{% static 'images/captcha.jpeg'%}");padding: 10px 15px;width: 250px;text-align: center;color: black;font-size: 32px;font-weight: bold;border-radius: 5px;
+    }
+    .incap{
+        height: 70px;
+    }
+</style>
+<body onload="myCaptcha()">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}    
+<div class="row outer">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-6 mx-auto text-center text-white fs-3">Fill Your Form Here...</div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-6 fc">
+                Your Name : <br/>
+                                <div class="input-group">
+                                    <i class="input-group-text bg-bcolor text-light txt1"><i class="fa-solid fa-user"></i></i>
+                                    <input type="text" name="name" required class="form-control txt" placeholder="Enter Your Name* ">
+                                </div>
+            </div>
+            <div class="col-sm-6 fc">
+                Email : <br/>
+                                <div class="input-group">
+                                    <i class="input-group-text bg-bcolor text-light txt1"><i class="fa-solid fa-envelope"></i></i>
+                                    <input type="email" name="email" required class="form-control txt" placeholder="Enter Your Email id* ">
+                                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-6 fc">
+                Aadhar No : <br/>
+                                <div class="input-group">
+                                    <i class="input-group-text bg-bcolor text-light txt1"><i class="fa-solid fa-id-card"></i></i>
+                                    <input type="text" name="aadhar" required class="form-control txt" placeholder="Enter Your Aadhar No* ">
+                                </div>
+            </div>
+            <div class="col-sm-6 fc">
+                Pancard No : <br/>
+                                <div class="input-group">
+                                    <i class="input-group-text bg-bcolor text-light txt1"><i class="fa-solid fa-id-card-clip"></i></i>
+                                    <input type="text" name="pancard" required class="form-control txt" placeholder="Enter Your Pan No* ">
+                                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-6 fc">
+                Phone No : <br/>
+                                <div class="input-group">
+                                    <i class="input-group-text bg-bcolor text-light txt1"><i class="fa-solid fa-phone"></i></i>
+                                    <input type="text" name="phone" class="form-control txt" placeholder="Enter Your Phone No* ">
+                                </div>
+            </div>
+            <div class="col-sm-6 fc">
+                Alternet Phone No : <br/>
+                                <div class="input-group">
+                                    <i class="input-group-text bg-bcolor text-light txt1"><i class="fa-solid fa-phone-volume" style="transform: rotate(-30deg);"></i></i>
+                                    <input type="text" required name="aphone" class="form-control txt" placeholder="Enter Alternet Phone No*">
+                                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-6 fc">
+                City Your Worker In : <br/>
+                                <div class="input-group">
+                                    <i class="input-group-text bg-bcolor text-light txt1"><i class="fa-sharp fa-solid fa-city"></i></i>
+                                    <select name="city" class="form-control">
+                                        <option disabled="true">--Select--</option>
+                                        <option>Basti</option>
+                                        <option>Gorakhpur</option>
+                                        <option>Kushinagar</option>
+                                        <option>Prayagraj</option>
+                                        <option>Lucknow</option>
+                                        <option>delhi</option>
+                                        <option>siddhradhnagar</option>
+                                        <option>Jonpur</option>
+
+                                    </select>
+                                </div>
+            </div>
+            <div class="col-sm-6 fc">
+                Select Picture : <br/>
+                                      <input type="file" class="form-control txt" name="igg" >
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-6 fc">
+                Select Job : <br/>
+                                <div class="input-group">
+                                    <i class="input-group-text bg-bcolor text-light txt1"><i class="fa-solid fa-hand-point-right"></i></i>
+                                    <select name="job" class="form-control txt">
+                                        <option disabled="true">Select Here</option>
+                                        {% for i in data %}
+                                        <option>{{i.Name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+            </div>
+            <div class="col-sm-6 fc">
+                Date Of Birth : <br/>
+                                <div class="input-group">
+                                    <i class="input-group-text bg-bcolor text-light txt1"><i class="fa-solid fa-calendar-days"></i></i>
+                                    <input type="date" name="date" class="form-control txt">
+                                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-sm-6">
+                <p class="cap"><s style="font-size: 20px;letter-spacing: 10px;"></s> <span style="font-size: 25px;margin-left: 10px;cursor: pointer;" onclick="myCaptcha(),ato()"><i class="fa-solid fa-arrows-rotate"></i></span></p>
+                <span id="invalid" class="mb-2g"></span>
+                <div class="input-group">
+                    <input type="text" id="txtc" class="form-control incap" placeholder="Enter Captcha Here.. ">
+                </div>
+            </div>
+            <div class="col-sm-6 fc text-center mt-5">
+                <input type="submit" value="Register" onclick="check()" class="btn sbtn">
+            </div>
+            <script>
+                function myCaptcha()
+                {
+                    var str="asdfghjklqwertyuiopzxcvbnmASDFGHJKLQWERTYUIOPZXCVBNM#@$%*&"
+                    //var str="1234567890"
+                    captcha=""
+                    for(var i=0;i<=5;i++)
+                    {
+                        var Index=Math.floor(Math.random()*str.length)
+                        var cap=str[Index]
+                        captcha=captcha+cap
+                        
+                    }
+                    document.querySelector("s").innerText=captcha
+                    
+                }
+                function check()
+                    {
+                        var t=document.querySelector("#txtc")
+                        var s=document.querySelector("s")
+                        var p=document.querySelector("p")
+                        if(s.innerText==t.value.trim())
+                        {
+                            
+                            p.style.border="3px solid green"
+                            t.style.border="3px solid green"
+
+                            
+                        }
+                        else
+                        {
+                            p.style.border="3px solid red"
+                            t.style.border="3px solid red"
+                            document.querySelector("#invalid").innerText="Invalid captcha.."
+                            var n=document.querySelector("#invalid")
+                            n.style.color="red"
+                        }
+                    }
+                function ato()
+                {
+                    var p=document.querySelector("p")
+                    var t=document.querySelector("#txtc")
+                    p.style.border="none"
+                    t.style.border="none"
+
+                }
+
+            </script>
+        </div>
+        <div class="row"></div>
+
+
+
+    </div>
+</div>
+</form>
+</body>
+{% endblock %}

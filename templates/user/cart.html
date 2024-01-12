@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for i in udata %}
+<div class="row my-3 mx-3">
+    <div class="col-sm-12">
+        <div class="card my-3 px-2">
+            <div class="row g-0">
+              <div class="col-md-12 px-5">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-2"><a href="" style="text-decoration: none;" class="btn bg-success text-white">{{i.id}}</a><span class="float-end pt-2">{{i.name}}</span></div>
+                    <div class="col-sm-2 pt-2"><a href="tel:{{i.mobile}}" style="text-decoration: none;">{{i.mobile}}</a></div>
+                    <div class="col-sm-2 pt-2"><a href="tel:{{i.amobile}}" style="text-decoration: none;">{{i.amobile}}</a></div>
+                    <div class="col-sm-2 pt-2">{{i.city}}</div>
+                    <div class="col-sm-2 pt-2">{{i.address}}</div>
+                    <div class="col-sm-1 pt-2">{{i.job}}</div>
+                    <div class="col-sm-1"><a href="/user/cart?uid={{i.id}}" style="text-decoration: none;" class="btn bg-success float-end text-white">REMOVE</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+ </div>
+ <h1>Helllllll</h1>
+ {% endfor %}
+{% endblock %}
